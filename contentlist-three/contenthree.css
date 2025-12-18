@@ -1192,9 +1192,10 @@ h1 {
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   height: 10rem;
   padding: 0 5rem;
+  margin-left: calc(50% - 50vw);
   background-color: #f2f2f2;
 }
 
@@ -1209,7 +1210,7 @@ footer .logo-text-right {
 }
 
 .footer-wrap .footer-map {
-  font-size: 1.25rem;
+  font-size: calc(var(--step-1) - 0.7rem);
   color: #888888;
 }
 
