@@ -113,13 +113,31 @@ h1 {
   width: 100vw;
   margin-left: calc(50% - 50vw);
 }
+.content-image.fade-slider {
+  position: relative;
+  width: 100vw;
+  height: 500px; /* 데스크탑 높이 - 필요시 조절 */
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  background-color: #000; /* 전환 시 빈 공간 방지 */
 
-.content-image img {
-  display: block;
-  width: 100%;
-  height: auto;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* 페이드 속도 (2초 동안 천천히) */
+  }
+
+  img.active {
+    z-index: 1; /* 활성화된 이미지를 맨 위로 */
+    opacity: 1;
+  }
 }
-
 .h2-area {
   margin: 0 5rem;
 }
@@ -131,7 +149,6 @@ h1 {
 }
 .content-sub-text {
   padding-block-end: 5rem;
-  margin-top: 1rem;
   font-size: var(--step-0);
   line-height: var(--leading-l);
   border-bottom: 1px solid #c8c8c8;
@@ -194,7 +211,7 @@ h1 {
 .img-wrap {
   overflow: hidden;
 }
-.card-item li a img {
+.card-item li a .vv {
   display: block;
   max-width: 100%;
   height: auto;
@@ -412,6 +429,9 @@ footer .logo-text-right {
 
 /* 반응형: 화면 768px 이하 → 카드 1개씩 한 줄 */
 @media screen and (max-width: 840px) {
+  .content-image.fade-slider {
+    height: 18.75rem; /* 기존 모바일 높이 유지 */
+  }
   .top-nav {
     display: none;
   }
@@ -446,6 +466,7 @@ footer .logo-text-right {
     margin-top: 1rem;
     font-size: var(--step-0);
     line-height: var(--leading-m);
+    text-align: center;
     border-bottom: 1px solid #c8c8c8;
   }
   .content-image {
@@ -460,7 +481,7 @@ footer .logo-text-right {
   }
 
   .content-main-text {
-    padding-block-start: 0.4em;
+    padding-block-start: 0.6em;
     margin: 0 auto;
     font-size: var(--step-3);
     font-weight: var(--font-bold);
@@ -521,8 +542,14 @@ footer .logo-text-right {
     max-width: 100%;
   }
 
+  .text-image dl .bio-title {
+    padding-block-end: 1rem;
+  }
   .ff {
     white-space: nowrap;
+  }
+  .text-image-second dl .bio-title {
+    padding-block-end: 1rem;
   }
   .text-image figure,
   .text-image-second figure {

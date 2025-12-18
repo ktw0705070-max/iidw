@@ -210,7 +210,7 @@ h1 {
   flex: 1 1 0;
   max-width: 23.375rem;
   font-size: calc(var(--step-1) - 0.6rem);
-  color: #888888;
+  color: #666;
 }
 .first-text p:first-child {
   padding-right: 2rem;
@@ -263,13 +263,13 @@ h1 {
 .number-desc {
   margin-block-start: 1em;
   font-size: calc(var(--step-1) - 0.6rem);
-  color: #888888;
+  color: #666;
   text-align: center;
   white-space: nowrap;
 }
 .number-text {
   display: block;
-  padding-top: 17em;
+  padding-top: 16em;
   font-size: calc(var(--step-1) - 0.6rem);
 }
 .bottom-border {
@@ -289,7 +289,7 @@ h1 {
 .principle-text {
   width: 35.875rem;
   font-size: calc(var(--step-1) - 0.6rem);
-  color: #888888;
+  color: #666;
 }
 .principle-text .bb {
   padding-bottom: 1.2em;
@@ -380,7 +380,7 @@ footer .logo-text-right {
 }
 .footer-wrap .footer-map {
   font-size: calc(var(--step-1) - 0.7rem);
-  color: #888888;
+  color: #666;
 }
 
 @media screen and (max-width: 840px) {
@@ -409,6 +409,9 @@ footer .logo-text-right {
   }
   .menu-toggle {
     display: block;
+  }
+  .imgslide {
+    margin-block-start: 8rem;
   }
 }
 @media screen and (max-width: 1024px) {
