@@ -1,0 +1,18 @@
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s-l, 2.5rem));
+  align-items: var(--switcher-vertical-alignment, flex-start);
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc(
+      (var(--switcher-container-min-width, 40rem) - 100%) * 999999
+    );
+    max-inline-size: 100%;
+
+    // &:nth-child(n + 3) {
+    //   flex-basis: 100%;
+    // }
+  }
+}

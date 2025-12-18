@@ -1,0 +1,25 @@
+@use "../scss-utilities/unit-converting" as *;
+
+$min-width: 320;
+$max-width: 1440;
+$min-content-width: $min-width - 2 * 16;
+$max-content-width: $max-width - 2 * 80;
+$min-font-size: 16;
+$max-font-size: 22.5;
+$min-font-scale: 1.2;
+$max-font-scale: 1.333;
+
+:root {
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --min-width: #{pxToRem($min-width)}rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --max-width: #{pxToRem($max-width)}rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --min-content-width: #{pxToRem($min-content-width)}rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --max-content-width: #{pxToRem($max-content-width)}rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --min-font-size: #{pxToRem($min-font-size)}rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --max-font-size: #{pxToRem($max-font-size)}rem;
+}

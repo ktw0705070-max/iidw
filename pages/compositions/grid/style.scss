@@ -1,0 +1,53 @@
+@use '../../../styles/global/base';
+@use '../../../styles/compositions/flow';
+@use '../../../styles/compositions/grid';
+@use '../../../styles/compositions/switcher';
+@use '../../../styles/compositions/wrapper';
+
+.section {
+  --flow-space: var(--space-l);
+
+  padding: var(--space-l);
+  background-color: var(--surface-3);
+
+  > * {
+    --flow-space: 1em;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+
+  &.flow > li {
+    --flow-space: 0.75em;
+  }
+}
+
+code {
+  padding-inline: 0.5em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.elem {
+  background-color: var(--surface-2);
+}
+
+.grid {
+  --grid-min-item-size: 35ch;
+
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  &__item {
+    color: var(--on-tertiary-container);
+    background-color: var(--tertiary-container);
+
+    &__text {
+      padding: var(--space-s);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+:root {
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --min-width: pxToRem(320)rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --max-width: pxToRem(1440)rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --min-content-width: pxToRem(288)rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --max-content-width: pxToRem(1280)rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --min-font-size: pxToRem(16)rem;
+  /* stylelint-disable-next-line scss/dollar-variable-no-missing-interpolation */
+  --max-font-size: pxToRem(20)rem;
+}

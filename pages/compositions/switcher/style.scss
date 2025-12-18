@@ -1,0 +1,82 @@
+@use '../../../styles/global/base';
+@use '../../../styles/compositions/flow';
+@use '../../../styles/compositions/switcher';
+@use '../../../styles/compositions/wrapper';
+
+.section {
+  --flow-space: var(--space-l);
+
+  padding: var(--space-l);
+  background-color: var(--surface-3);
+
+  > * {
+    --flow-space: 1em;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+
+  &.flow > li {
+    --flow-space: 0.75em;
+  }
+}
+
+code {
+  padding-inline-end: 0.5em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.elem {
+  background-color: var(--surface-2);
+}
+
+.flex {
+  --switcher-target-wrapper-width: 60rem;
+  --switcher-vertical-alignment: stretch;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--switcher-space, var(--space-s-l, 1rem));
+  align-items: var(--switcher-vertical-alignment, flex-start);
+
+  > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-inline-size: 100%;
+  }
+
+  &__item {
+    color: var(--on-primary-container);
+    background-color: var(--primary-container);
+
+    &__text {
+      padding: var(--space-s);
+    }
+  }
+}
+
+.switcher {
+  --switcher-target-wrapper-width: 60rem;
+  --switcher-vertical-alignment: stretch;
+
+  &__item {
+    color: var(--on-tertiary-container);
+    background-color: var(--tertiary-container);
+
+    &__text {
+      padding: var(--space-s);
+    }
+  }
+
+  // n + 3 이면, 아이템이 3개 이상이 되면 세로로 배열
+  // n + 4 이면, 아이템이 4개 이상이 되면 세로로 배열
+  // 즉, n + x 이면, x - 1개까지 가로로 배열
+
+  // > :nth-last-child(n + 3),
+  // > :nth-last-child(n + 3) ~ * {
+  //   flex-basis: 100%;
+  // }
+}

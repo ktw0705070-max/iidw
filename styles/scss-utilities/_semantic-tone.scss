@@ -1,0 +1,88 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
+@mixin generateSematicTones($tones) {
+  $configs: map.get($tones, 'configs');
+  $pairs: map.get($tones, 'pairs');
+  $config-type: meta.type-of($configs);
+  $pairs-type: meta.type-of($pairs);
+
+  @if $config-type != 'list' {
+    $semantic-name: list.nth(list.nth($configs, 1), 2);
+    $tone-name: list.nth(list.nth($configs, 2), 2);
+
+    @each $a-pair in $pairs {
+      $prefix: map.get($a-pair, 'prefix');
+
+      @if not $prefix {
+        $prefix: '';
+      }
+
+      $suffix: map.get($a-pair, 'suffix');
+
+      @if not $suffix {
+        $suffix: '';
+      }
+
+      $step-pair: map.get($a-pair, 'stepPair');
+      $light-tone-step: list.nth($step-pair, 1);
+      $dark-tone-step: list.nth($step-pair, 2);
+      $variable-name: #{$semantic-name};
+
+      @if $prefix != '' {
+        $variable-name: #{$prefix}-#{$variable-name};
+      }
+
+      @if $suffix != '' {
+        $variable-name: #{$variable-name}-#{$suffix};
+      }
+
+      $variable-name: --#{$variable-name};
+
+      #{$variable-name}: light-dark(
+        var(--tone-#{$tone-name}-#{$light-tone-step}),
+        var(--tone-#{$tone-name}-#{$dark-tone-step})
+      );
+    }
+  } @else {
+    @each $config in $configs {
+      $semantic-name: map.get($config, 'semanticName');
+      $tone-name: map.get($config, 'toneName');
+
+      @each $a-pair in $pairs {
+        $prefix: map.get($a-pair, 'prefix');
+
+        @if not $prefix {
+          $prefix: '';
+        }
+
+        $suffix: map.get($a-pair, 'suffix');
+
+        @if not $suffix {
+          $suffix: '';
+        }
+
+        $step-pair: map.get($a-pair, 'stepPair');
+        $light-tone-step: list.nth($step-pair, 1);
+        $dark-tone-step: list.nth($step-pair, 2);
+        $variable-name: #{$semantic-name};
+
+        @if $prefix != '' {
+          $variable-name: #{$prefix}-#{$variable-name};
+        }
+
+        @if $suffix != '' {
+          $variable-name: #{$variable-name}-#{$suffix};
+        }
+
+        $variable-name: --#{$variable-name};
+
+        #{$variable-name}: light-dark(
+          var(--tone-#{$tone-name}-#{$light-tone-step}),
+          var(--tone-#{$tone-name}-#{$dark-tone-step})
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+@use '../scss-utilities/perceptone' as *;
+@use '../scss-utilities/semantic-tone' as *;
+
+$surface: (
+  'configs': (
+    (
+      'semanticName': 'surface',
+      'toneName': 'neutral'
+    )
+  ),
+  'pairs': (
+    (
+      'stepPair': (
+        98,
+        4
+      )
+    ),
+    (
+      'prefix': 'on',
+      'stepPair': (
+        4,
+        98
+      )
+    ),
+    (
+      'prefix': 'on',
+      'suffix': 'variant',
+      'stepPair': (
+        24,
+        78
+      )
+    ),
+    (
+      'suffix': '1',
+      'stepPair': (
+        100,
+        2
+      )
+    ),
+    (
+      'suffix': '2',
+      'stepPair': (
+        96,
+        6
+      )
+    ),
+    (
+      'suffix': '3',
+      'stepPair': (
+        94,
+        8
+      )
+    ),
+    (
+      'suffix': '4',
+      'stepPair': (
+        92,
+        10
+      )
+    ),
+    (
+      'suffix': '5',
+      'stepPair': (
+        90,
+        12
+      )
+    )
+  )
+);
+$outline: (
+  'configs': (
+    (
+      'semanticName': 'outline',
+      'toneName': 'neutral'
+    )
+  ),
+  'pairs': (
+    (
+      'stepPair': (
+        50,
+        52
+      )
+    ),
+    (
+      'suffix': 'variant',
+      'stepPair': (
+        80,
+        22
+      )
+    )
+  )
+);
+$chromatics: (
+  'configs': (
+    (
+      'semanticName': 'primary',
+      'toneName': 'red'
+    ),
+    (
+      'semanticName': 'secondary',
+      'toneName': 'green'
+    ),
+    (
+      'semanticName': 'tertiary',
+      'toneName': 'blue'
+    )
+  ),
+  'pairs': (
+    (
+      'stepPair': (
+        40,
+        62
+      )
+    ),
+    (
+      'prefix': 'on',
+      'stepPair': (
+        100,
+        2
+      )
+    ),
+    (
+      'suffix': 'container',
+      'stepPair': (
+        90,
+        12
+      )
+    ),
+    (
+      'prefix': 'on',
+      'suffix': 'container',
+      'stepPair': (
+        30,
+        72
+      )
+    )
+  )
+);
+
+:root {
+  @include generatePerceptone(
+    (
+      'hue': 30,
+      'toneName': 'red'
+    )
+  );
+  @include generatePerceptone(
+    (
+      'hue': 150,
+      'toneName': 'green'
+    )
+  );
+  @include generatePerceptone(
+    (
+      'hue': 270,
+      'toneName': 'blue'
+    )
+  );
+  @include generatePerceptone(
+    (
+      'hue': 0,
+      'chromaPeak': 0,
+      'lightnessAtChromaPeak': 0,
+      'toneName': 'neutral'
+    )
+  );
+  @include generateSematicTones($surface);
+  @include generateSematicTones($outline);
+  @include generateSematicTones($chromatics);
+}

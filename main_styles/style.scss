@@ -1,0 +1,570 @@
+@use "../styles/global/base";
+@use "../styles/compositions";
+@use "../styles/utilities";
+
+body {
+  font-size: var(--step-0);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-m);
+  letter-spacing: -0.025em;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+@keyframes loader-ani {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+.before-load .loader-wrapper {
+  opacity: 1;
+}
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 5px solid #222;
+  border-color: #222 transparent transparent;
+  border-radius: 50%;
+  animation: loader-ani 1s infinite linear;
+}
+.wrap {
+  --wrapper-max-width: 120rem;
+  --gutter: var(--space-s-xl);
+  padding: 0;
+}
+.inner {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+.top-nav {
+  position: static;
+  display: flex;
+}
+.menu-toggle {
+  display: none; /* 데스크톱에서는 숨김 */
+  padding: 0.5rem;
+
+  font-size: 2.5rem; /* ← 아이콘 크기 키움 */
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+// .top-nav.active {
+//   position: absolute;
+//   top: 6.375rem;
+//   right: 5rem;
+//   z-index: 1000;
+//   display: flex;
+//   flex-direction: column;
+//   padding: 1rem 2rem;
+//   background: white;
+//   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+// }
+.top-menu {
+  margin: 0 5rem;
+}
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6.375rem;
+  // padding: 0 5rem;
+}
+h1 {
+  font-size: var(--step-1);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-s);
+}
+// .top-nav {
+//   display: flex;
+//   padding: 0;
+// }
+.top-nav li {
+  padding: 0 1.875rem;
+  padding-right: 0;
+}
+.top-nav li a {
+  font-size: 1.125rem;
+  font-weight: var(--font-medium);
+}
+.content-image {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.content-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.h2-area {
+  margin: 0 5rem;
+}
+.content-main-text {
+  padding-block-start: 0.4em;
+  font-size: var(--step-3);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-s);
+}
+.content-sub-text {
+  padding-block-end: 5rem;
+  margin-top: 1rem;
+  font-size: var(--step-0);
+  line-height: var(--leading-l);
+  border-bottom: 1px solid #c8c8c8;
+}
+.Microorganism-card {
+  padding-top: 5rem;
+  margin: 0 5rem;
+}
+.card-content {
+  padding-bottom: 8rem;
+}
+.card-content-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 3rem;
+}
+.card-content-text h2 {
+  line-height: var(--leading-s);
+}
+.card-sub-title {
+  max-width: 42.25rem;
+  font-size: 1.375rem;
+  line-height: 2rem;
+  color: #888888;
+  text-align: right;
+}
+.card-item {
+  display: flex;
+  flex-wrap: wrap; /* 화면 좁아지면 줄 바꿈 */
+  gap: 1.6rem; /* 카드 간 가로 간격 */
+  justify-content: center;
+  padding: 0;
+}
+// .card-item {
+//   display: flex;
+//   gap: 1.6rem;
+//   justify-content: space-between;
+//   padding: 0;
+// }
+.card-item li {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: calc(25% - 1.2rem); /* 카드 4개 가로 배치 */
+  flex-direction: column;
+  align-items: flex-start; /* 기본: 텍스트 왼쪽 정렬 */
+  height: 23.875rem;
+  margin-bottom: 1.6rem; /* 카드 세로 간격 */
+}
+// .card-item li {
+//   // width: 20.75rem;
+//   flex-grow: 1;
+//   flex-basis: 0;
+//   height: 23.875rem;
+// }
+.card-item li a {
+  display: block;
+  width: 100%;
+}
+.img-wrap {
+  overflow: hidden;
+}
+.card-item li a img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s e ase;
+}
+.card-item li a img:hover {
+  transform: scale(1.2);
+}
+.name-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 기본: 왼쪽 정렬 */
+  margin-top: 0.5rem;
+}
+.name-wrap:hover {
+  text-decoration: underline;
+}
+.card-item .name {
+  padding-block-start: 0.375rem;
+  font-size: 1.375rem;
+  font-weight: var(--font-bold);
+}
+.card-item .name-sub {
+  font-size: 1.125rem;
+  line-height: var(--leading-m);
+  color: #888888;
+}
+
+.case {
+  padding-block-start: 6.25rem;
+  margin: 0 5rem;
+}
+.text-right {
+  margin: 0 auto;
+  margin-block-end: 3.5rem;
+  text-align: center;
+}
+.reasearch-img {
+  max-width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+.text-image {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-start: 3.5rem;
+}
+.text-image figure {
+  flex: 1;
+}
+.text-image figure,
+.text-image dl {
+  flex: 1 0 0;
+  // min-width: 0;
+}
+.text-image dl {
+  flex: 1 0 0;
+  min-width: 0;
+  max-width: 35.125rem;
+}
+.text-image dl dt {
+  padding-block-end: 0.5rem;
+  font-size: 1.125rem;
+}
+.text-image dl dd {
+  padding: 0;
+  margin: 0;
+}
+.text-image dl .bio-title {
+  padding-block-end: 0.25rem;
+  font-size: 2.25rem;
+  font-weight: var(--font-medium);
+  line-height: var(--leading-s);
+
+  // line-height: 1.2;
+}
+.text-image dl .bio-content {
+  font-size: 1.25rem;
+  line-height: var(--leading-m);
+  color: #888888;
+}
+.text-image-second {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-start: 3.5rem;
+}
+.text-image-second figure {
+  flex: 1;
+}
+.text-image-second figure,
+.text-image-second dl {
+  flex: 1 0 0;
+  // min-width: 0;
+}
+.text-image-second dl {
+  flex: 1 0 0;
+  min-width: 0;
+  max-width: 35.125rem;
+}
+.text-image-second dl dt {
+  padding-block-end: 0.5rem;
+  font-size: 1.125rem;
+}
+.text-image-second dl dd {
+  padding: 0;
+  margin: 0;
+}
+.text-image-second dl .bio-title {
+  padding-block-end: 0.25rem;
+  font-size: 2.25rem;
+  font-weight: var(--font-medium);
+  line-height: var(--leading-s);
+  // line-height: 1.2;
+}
+.text-image-second dl .bio-content {
+  font-size: 1.25rem;
+  color: #888888;
+}
+.space-future {
+  padding-block-start: 6.4375rem;
+  margin: 0 5rem;
+}
+.space-content {
+  padding-block-start: 6.4375rem;
+  padding-block-end: 6.25rem;
+  border-top: 1px solid #c8c8c8;
+}
+.space-text-wrap {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.space-margin {
+  padding-block-end: 3.5rem;
+}
+.read-more {
+  font-size: calc(var(--step-1) - 0.7rem);
+  color: #666666;
+  border-bottom: 1px solid #666666;
+}
+.space-image {
+  display: flex;
+  gap: 4.1875rem;
+  justify-content: space-between;
+  padding: 0;
+}
+.space-image .aa {
+  width: 19.125rem;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+.space-wrap {
+  margin-block-start: 0.75rem;
+}
+.space-title {
+  padding-block-end: 0.625rem;
+  font-size: 1.375rem;
+  font-weight: var(--font-medium);
+  line-height: var(--leading-s);
+}
+.space-content-text {
+  font-size: 1.125rem;
+  line-height: var(--leading-s);
+  color: #888888;
+}
+footer {
+  width: 100vw;
+  height: 10rem;
+  padding: 0 5rem;
+  margin-left: calc(50% - 50vw);
+  background-color: #f2f2f2;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  height: 100%; // 영역이 전체 채워져서 정렬 됌
+}
+footer .logo-text-right {
+  margin-right: 2.375rem;
+}
+.footer-wrap p {
+  font-size: calc(var(--step-1) - 0.7rem);
+  color: #888888;
+}
+@media screen and (max-width: 1024px) {
+  .card-content-text {
+    display: flex;
+    align-items: center;
+    margin-block-end: 3rem;
+    text-align: center;
+  }
+  .card-item {
+    justify-content: center; /* 두 개 카드 한 줄일 때 중앙 정렬 */
+  }
+  .card-item li {
+    flex-basis: calc(50% - 0.8rem);
+    align-items: center; /* 카드 내부 텍스트 중앙 정렬 */
+    margin-bottom: 2rem;
+  }
+
+  .card-item .abc {
+    margin-top: 4rem;
+  }
+  .card-item li .name-wrap {
+    align-items: center; /* 카드 내부 텍스트 중앙 정렬 */
+    text-align: center;
+  }
+}
+
+/* 반응형: 화면 768px 이하 → 카드 1개씩 한 줄 */
+@media screen and (max-width: 840px) {
+  .top-nav {
+    display: none;
+  }
+
+  .top-nav.active {
+    position: absolute;
+    top: 5.2rem;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: center;
+    width: 100vw;
+
+    padding: 1.5rem 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .Microorganism-card {
+    padding-top: 2rem;
+    margin: 0 5rem;
+  }
+
+  .content-sub-text {
+    padding-block-end: 2rem;
+    margin-top: 1rem;
+    font-size: var(--step-0);
+    line-height: var(--leading-m);
+    border-bottom: 1px solid #c8c8c8;
+  }
+  .content-image {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+
+  .content-image img {
+    display: block;
+    width: 100%;
+    height: 18.75rem;
+  }
+
+  .content-main-text {
+    padding-block-start: 0.4em;
+    margin: 0 auto;
+    font-size: var(--step-3);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-s);
+    text-align: center;
+  }
+  .case {
+    padding-block-start: 1rem;
+  }
+  .space-text-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  .img-wrap img {
+    margin: 0 auto;
+  }
+  .card-item {
+    justify-content: center;
+  }
+
+  .card-item li {
+    flex-basis: 100%;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+  .ww {
+    margin-top: 4rem;
+  }
+  .card-item .abc {
+    margin-top: 4rem;
+  }
+  .card-item li .name-wrap {
+    align-items: center;
+    text-align: center;
+  }
+  .name-sub {
+    width: 50%;
+  }
+  .text-image {
+    margin-block-end: 8rem;
+  }
+  .text-image-second {
+    margin-block-end: 8rem;
+  }
+  .bottom {
+    margin-block-end: 0;
+  }
+  .text-image,
+  .text-image-second {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-image dl,
+  .text-image-second dl {
+    max-width: 100%;
+  }
+
+  .ff {
+    white-space: nowrap;
+  }
+  .text-image figure,
+  .text-image-second figure {
+    width: 100%;
+  }
+
+  .read-more {
+    margin-block-end: 2.5rem;
+    font-size: calc(var(--step-1) - 0.5rem);
+    white-space: nowrap;
+  }
+  .space-image {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .space-image li {
+    width: auto;
+    margin-bottom: 2rem;
+  }
+
+  .space-image li:first-child {
+    order: 1;
+  }
+  .space-image li:nth-child(2),
+  .space-image li:nth-child(3) {
+    order: 2;
+  }
+
+  /* 두 번째와 세 번째 이미지를 한 줄로 중앙 배치 */
+  .space-image .aa {
+    display: inline-block;
+    margin: 0 1rem; /* 이미지 사이 간격 */
+  }
+
+  /* 이미지 중앙 정렬 */
+  .space-image li a img {
+    display: block;
+    margin: 0 auto;
+  }
+  .space-margin {
+    padding-block-end: 2rem;
+    text-align: left;
+  }
+}

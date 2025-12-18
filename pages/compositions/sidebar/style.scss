@@ -1,0 +1,54 @@
+@use '../../../styles/global/base';
+@use '../../../styles/utilities/region';
+@use '../../../styles/compositions/flow';
+@use '../../../styles/compositions/sidebar';
+@use '../../../styles/compositions/wrapper';
+
+ul,
+ol {
+  list-style: none;
+
+  &.flow > li {
+    --flow-space: 0.75em;
+  }
+}
+
+code {
+  padding-inline-end: 0.5em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.elem {
+  border: 1px solid var(--outline);
+
+  &__main {
+    border: 1px solid var(--outline);
+
+    // .section {
+    //   margin-inline-start: calc(-1 * var(--space-s-3xl));
+    //   margin-inline-end: calc(-1 * var(--space-s-3xl));
+    // }
+  }
+
+  &__side {
+    border: 1px solid var(--outline);
+  }
+}
+
+.section {
+  padding: var(--space-m);
+  border: 1px solid var(--outline);
+}
+
+.sticky {
+  &__track {
+    position: relative;
+  }
+
+  &__item {
+    position: sticky;
+    top: var(--space-s);
+    border: 1px solid var(--outline);
+  }
+}

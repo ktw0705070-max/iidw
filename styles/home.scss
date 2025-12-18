@@ -1,0 +1,21 @@
+@use './global/base';
+@use './compositions';
+@use './utilities';
+
+.grid-wrapper {
+  --gutter: var(--space-s-2xl);
+}
+
+.section {
+  --flow-space: var(--space-m);
+
+  > * {
+    --flow-space: 1em;
+  }
+
+  &__list {
+    > * {
+      --flow-space: 0.25em;
+    }
+  }
+}

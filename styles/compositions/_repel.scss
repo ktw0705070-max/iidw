@@ -1,0 +1,11 @@
+.repel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s-m, 1.875rem));
+  align-items: var(--repel-vertical-alignment, center);
+  justify-content: space-between;
+}
+
+.repel[data-nowrap] {
+  flex-wrap: nowrap;
+}

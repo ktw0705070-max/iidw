@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composition: Cluster</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="elem | wrapper flow">
+      <h1>Composition: Cluster</h1>
+      <p>
+        Cluster는 클래스가 적용된 요소의 자녀요소들을 가로로 배열하되, 넘치면
+        다음 줄에 배열한다. Grid와 유사하지만, Grid가 행과 열간에 격자를
+        형성하는 반면, Cluster는 자녀요소들이 그저 일정한 간격으로 배치되도록
+        한다. 즉, 모든 행을 아우르는 열의 개념이 없다.
+      </p>
+      <section class="section | flow">
+        <h2>주요 변수</h2>
+        <ul class="flow">
+          <li><code>--cluster-space</code>: 자녀요소들 간의 간격.</li>
+          <li>
+            <code>--cluster-vertical-alignment</code>: 요소들의 세로 정렬.
+            부모요소의 높이가 자녀요소들의 합보다 큰 경우 유의미하게 작동.
+            <a
+              href="https://developer.mozilla.org/ko/docs/Web/CSS/Reference/Properties/align-items"
+              target="_blank"
+              >링크</a
+            >
+            참조.
+          </li>
+          <li>
+            <code>--cluster-horizontal-alignment</code>: 요소들의 가로 정렬.
+            가로로 나열하고 남은 공간이 발생할 경우, 그 공간을 어떻게 분배할지
+            결정.
+            <a
+              href="https://developer.mozilla.org/ko/docs/Web/CSS/Reference/Properties/justify-content"
+              target="_blank"
+              >링크</a
+            >
+            참조.
+          </li>
+        </ul>
+      </section>
+      <section class="section | flow">
+        <h2>Cluster 예시</h2>
+        <ul class="cluster">
+          <li>Lorem.</li>
+          <li>Blanditiis.</li>
+          <li>Dignissimos!</li>
+          <li>Autem.</li>
+          <li>Repellat?</li>
+          <li>Inventore!</li>
+          <li>Reiciendis.</li>
+          <li>Aspernatur!</li>
+          <li>Temporibus.</li>
+          <li>Labore.</li>
+          <li>Cum.</li>
+          <li>Doloribus?</li>
+          <li>Consequuntur.</li>
+          <li>Odit?</li>
+          <li>Est.</li>
+          <li>Impedit!</li>
+          <li>Earum.</li>
+          <li>Neque.</li>
+          <li>Omnis.</li>
+          <li>Quisquam!</li>
+          <li>Est!</li>
+          <li>Eaque.</li>
+          <li>Corporis.</li>
+          <li>Facere.</li>
+          <li>Rerum!</li>
+          <li>Natus.</li>
+          <li>Numquam.</li>
+          <li>Blanditiis?</li>
+          <li>Quibusdam.</li>
+          <li>Animi.</li>
+          <li>Deserunt.</li>
+          <li>Cumque?</li>
+          <li>Nesciunt.</li>
+          <li>Officia.</li>
+          <li>Accusantium?</li>
+          <li>Itaque.</li>
+          <li>Maiores.</li>
+          <li>Aspernatur.</li>
+          <li>Iusto.</li>
+          <li>Et!</li>
+          <li>Distinctio!</li>
+          <li>Minus.</li>
+          <li>Iusto.</li>
+          <li>Quo!</li>
+          <li>Obcaecati!</li>
+          <li>Deleniti!</li>
+          <li>Assumenda!</li>
+          <li>Inventore.</li>
+          <li>Omnis.</li>
+          <li>Dicta.</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

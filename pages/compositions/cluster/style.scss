@@ -1,0 +1,44 @@
+@use '../../../styles/global/base';
+@use '../../../styles/compositions/cluster';
+@use '../../../styles/compositions/flow';
+@use '../../../styles/compositions/wrapper';
+
+.section {
+  --flow-space: var(--space-l);
+
+  padding: var(--space-l);
+  background-color: var(--surface-3);
+
+  > * {
+    --flow-space: 1em;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+
+  &.flow > li {
+    --flow-space: 0.75em;
+  }
+}
+
+code {
+  padding-inline: 0.5em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.elem {
+  background-color: var(--surface-2);
+}
+
+.cluster {
+  > li {
+    text-box: trim-both ex;
+    padding: 0.5em;
+    color: var(--on-primary);
+    background-color: var(--primary);
+    border-radius: 0.25em;
+  }
+}

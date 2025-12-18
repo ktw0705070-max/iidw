@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composition: Grid</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="elem | wrapper flow">
+      <h1>Composition: Grid</h1>
+      <p>
+        Grid는 클래스가 적용된 요소의 자녀요소들을 가로로 배열하되, 넘치면 다음
+        줄에 배열한다.
+      </p>
+      <p>
+        한 줄에 몇 개의 자녀요소가 배치될지는 부모요소의 컨텐츠
+        너비(<code>W</code>)와 자녀요소의 최소너비(<code>m</code>)에 따라
+        결정된다. 예를 들어 <code>W=1000px</code>, <code>m=300px</code>라면 한
+        줄에 3개의 자녀요소가 배치된다(<code>1000 / 300 = 3.33</code>). 이 때
+        <code>1000</code>을 <code>300</code>으로 나눈 나머지 <code>100</code>은
+        각 자녀요소에 균등하게 분배되어 각 자녀요소의 실제 너비는
+        <code>300 + (100 / 3) = 333.33px</code>이 된다.
+      </p>
+      <p>
+        만약 부모요소의 컨텐츠너비가 <code>800px</code>로 줄어든다면, 한 줄에는
+        2개의 자녀요소가 배치되고(<code>800 / 300 = 2.66</code>), 각 자녀요소의
+        너비는 <code>366.66px</code>이 되며(<code
+          >300 + (200 / 3) = 366.66px</code
+        >), 3번째 자녀요소는 아랫줄로 내려간다.
+      </p>
+      <section class="section | flow">
+        <h2>주요 변수</h2>
+        <ul class="flow">
+          <li><code>--grid-min-item-size</code>: 자녀요소의 최소너비.</li>
+          <li><code>--grid-space</code>: 자녀요소들 간의 간격.</li>
+          <li>
+            <code>data-equal-row</code>: 요소의 어트리뷰트로 추가하면 모든 행의
+            높이가 같아진다.
+          </li>
+        </ul>
+      </section>
+      <section class="section | flow">
+        <h2>Switcher와의 차이점</h2>
+        <div class="switcher">
+          <div class="flow">
+            <h3>Switcher</h3>
+            <ul class="flow">
+              <li>
+                모든 자녀요소를 가로로 배열하거나 아니면 모두 세로로 배열한다.
+              </li>
+              <li>
+                가로배열과 세로배열 간의 전환을 부모요소의 컨텐츠너비에
+                기준한다.
+              </li>
+            </ul>
+          </div>
+          <div class="flow">
+            <h3>Grid</h3>
+            <ul class="flow">
+              <li>
+                자녀요소를 x개씩 가로로 배열하고, 여남은 자녀요소들은 다음 줄에
+                배열한다.
+              </li>
+              <li>
+                가로로 배열되는 자녀요소의 갯수를 자녀요소의 최소너비에
+                기준한다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="section | flow">
+        <h2>grid 예시</h2>
+        <div class="grid" data-equal-row>
+          <div class="grid__item">
+            <img src="../../../assets/horizontal-001.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+          <div class="grid__item">
+            <img src="../../../assets/horizontal-002.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+          <div class="grid__item">
+            <img src="../../../assets/horizontal-003.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+          <div class="grid__item">
+            <img src="../../../assets/horizontal-004.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+          <div class="grid__item">
+            <img src="../../../assets/vertical-001.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+          <div class="grid__item">
+            <img src="../../../assets/vertical-002.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+          <div class="grid__item">
+            <img src="../../../assets/vertical-003.webp" alt="" />
+            <div class="grid__item__text | flow">
+              <h3>Grid Child</h3>
+              <p>
+                최소너비를 35ch로 설정해 적정량의 텍스트가 보일 수 있는 정도의
+                최소너비를 보장했다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

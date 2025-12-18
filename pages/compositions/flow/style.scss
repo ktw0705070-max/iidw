@@ -1,0 +1,23 @@
+@use '../../../styles/global/base';
+@use '../../../styles/compositions/flow';
+@use '../../../styles/compositions/wrapper';
+
+code {
+  padding-inline-end: 0.5em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.flow {
+  > * {
+    border: 0.0625rem solid;
+  }
+}
+
+.section {
+  font-size: var(--step-4);
+
+  > *:not(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--step-0);
+  }
+}

@@ -1,0 +1,19 @@
+@use '../../../styles/global/base';
+@use '../../../styles/compositions';
+@use '../../../styles/utilities';
+
+.section {
+  --flow-space: var(--space-m);
+
+  > * {
+    --flow-space: 1em;
+  }
+
+  &__list {
+    padding-inline-start: 3ch;
+
+    > * {
+      --flow-space: 0.25em;
+    }
+  }
+}

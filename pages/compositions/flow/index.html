@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- <html lang="ko" style="color-scheme: light"> -->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composition: Flow</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="elem elem-grand-parent | wrapper flow">
+      <h1>Composition: Flow</h1>
+      <p>
+        flow는 클래스가 적용된 요소의 자녀요소들에게 일정한, 혹은 글자크기에
+        비례한 간격을 부여한다.
+      </p>
+      <p>
+        구문은 매우 간결하다.
+        <code
+          >.flow > * + * { margin-block-start: var(--flow-space, 1em); }</code
+        >이며, <code>--flow-space</code>가 지정되지 않은 경우 자녀요소의
+        글자크기에 비례해 상단 마진이 적용된다.
+      </p>
+      <p>
+        구문이 함의하는 바, 둘 이상의 자녀요소가 존재할 때 두번째 자녀요소부터
+        상단 마진이 적용되며, 첫 자녀요소에게는 상단 마진이 적용되지 않는다.
+      </p>
+      <section class="section | flow">
+        <h2>다른 컴포지션과 함께 사용하기</h2>
+        <p>
+          flow 컴포지션은 wrapper 컴포지션과 함께 사용될 수 있다. 이 경우,
+          wrapper 컴포지션이 요소의 너비를 제한하고 가운데 두는 역할을 수행하는
+          반면, flow 컴포지션은 자녀요소들 간의 간격을 설정하는 역할을 수행한다.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

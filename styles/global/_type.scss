@@ -1,0 +1,29 @@
+@use "./config" as config;
+@use "../../node_modules/utopia-core-scss/src/utopia" as utopia;
+
+:root {
+  @include utopia.generateTypeScale(
+    (
+      "minWidth": config.$min-width,
+      "maxWidth": config.$max-width,
+      "minFontSize": config.$min-font-size,
+      "maxFontSize": config.$max-font-size,
+      "minTypeScale": config.$min-font-scale,
+      "maxTypeScale": config.$max-font-scale,
+      "positiveSteps": 5,
+      "negativeSteps": 2,
+      "prefix": "step-",
+      "relativeTo": "viewport-width",
+    )
+  );
+
+  --leading-2xs: 1;
+  --leading-xs: 1.2;
+  --leading-s: 1.4;
+  --leading-m: 1.6;
+  --leading-l: 2.4;
+  --font-regular: 400;
+  --font-medium: 550;
+  --font-bold: 600;
+  --font-black: 900;
+}

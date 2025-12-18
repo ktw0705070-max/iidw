@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composition: Switcher</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="elem | wrapper flow">
+      <h1>Composition: Switcher</h1>
+      <p>
+        switcher는 클래스가 적용된 요소의 자녀요소들을 부모요소의 컨텐츠 너비가
+        충분한 경우 가로로 배열하고, 그렇지 않은 경우 세로로 배열한다.
+      </p>
+      <p>
+        일반적인 플렉스는 부모요소의 컨텐츠너비가 수용할 수 있는 한 자녀요소 중
+        일부라도 가로로 배열한다. 이로 인해 가로로 배열되지 못한 채 다음 줄로
+        넘겨진 자녀요소는 가로로 배열된 자녀요소와는 판이한 모습을 갖게 된다.
+        switcher는 모든 자녀요소가 가로로 배열될 수 있을 때만 가로로 배열하고,
+        그렇지 않으면 모두 세로로 배열함으로서 일관된 모습을 보장한다.
+      </p>
+      <section class="section | flow">
+        <h2>주요 변수</h2>
+        <ul class="flow">
+          <li>
+            <code>--switcher-target-wrapper-width</code>: 가로로 배열되기 위한
+            부모의 컨텐츠의 최소 너비. 즉, 부모의 컨텐츠 너비가 이 값보다
+            작아지면 세로로 배열된다.
+          </li>
+          <li><code>--switcher-space</code>: 자녀요소들 간의 간격.</li>
+          <li>
+            <code>--switcher-vertical-alignment</code>: 자녀요소들의 세로 정렬
+            방식. 자녀요소들의 높이가 다를 때 어떻게 정렬할지 결정한다. 설정할
+            수 있는 값은
+            <a
+              href="https://developer.mozilla.org/ko/docs/Web/CSS/Reference/Properties/align-items"
+              target="_blank"
+            >
+              링크
+            </a>
+            참조
+          </li>
+        </ul>
+      </section>
+      <section class="section | flow">
+        <h2>flex 예시</h2>
+        <div class="flex">
+          <div class="flex__item">
+            <img src="../../../assets/horizontal-001.webp" alt="" />
+            <div class="flex__item__text | flow">
+              <h3>Flex Child</h3>
+              <h4>Orphan & Narrow Problem</h4>
+              <p>
+                위 제목들에 적용된 단어잘림금지 설정으로 인해 시각적으로 가장 긴
+                단어(Problem)을 보여줄 수 있는 너비가 우리의 최소너비입니다.
+                우리가 한줄로 배열될 수 없다면: 한 줄로 배열되려면
+                최소너비보다도 더 작아져야한다면, 맨 끝 요소부터 하나씩 아래로
+                내려보내 공간을 확보합니다.
+              </p>
+            </div>
+          </div>
+          <div class="flex__item">
+            <img src="../../../assets/horizontal-002.webp" alt="" />
+            <div class="flex__item__text | flow">
+              <h3>Flex Child</h3>
+              <h4>Orphan & Narrow Problem</h4>
+              <p>
+                위 제목들에 적용된 단어잘림금지 설정으로 인해 시각적으로 가장 긴
+                단어(Problem)을 보여줄 수 있는 너비가 우리의 최소너비입니다.
+                우리가 한줄로 배열될 수 없다면: 한 줄로 배열되려면
+                최소너비보다도 더 작아져야한다면, 맨 끝 요소부터 하나씩 아래로
+                내려보내 공간을 확보합니다.
+              </p>
+            </div>
+          </div>
+          <div class="flex__item">
+            <img src="../../../assets/horizontal-003.webp" alt="" />
+            <div class="flex__item__text | flow">
+              <h3>Flex Child</h3>
+              <h4>Orphan & Narrow Problem</h4>
+              <p>
+                위 제목들에 적용된 단어잘림금지 설정으로 인해 시각적으로 가장 긴
+                단어(Problem)을 보여줄 수 있는 너비가 우리의 최소너비입니다.
+                우리가 한줄로 배열될 수 없다면: 한 줄로 배열되려면
+                최소너비보다도 더 작아져야한다면, 맨 끝 요소부터 하나씩 아래로
+                내려보내 공간을 확보합니다.
+              </p>
+            </div>
+          </div>
+          <div class="flex__item">
+            <img src="../../../assets/horizontal-004.webp" alt="" />
+            <div class="flex__item__text | flow">
+              <h3>Flex Child</h3>
+              <h4>Orphan & Narrow Problem</h4>
+              <p>
+                위 제목들에 적용된 단어잘림금지 설정으로 인해 시각적으로 가장 긴
+                단어(Problem)을 보여줄 수 있는 너비가 우리의 최소너비입니다.
+                우리가 한줄로 배열될 수 없다면: 한 줄로 배열되려면
+                최소너비보다도 더 작아져야한다면, 맨 끝 요소부터 하나씩 아래로
+                내려보내 공간을 확보합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section | flow">
+        <h2>Switcher 예시</h2>
+        <div class="switcher">
+          <div class="switcher__item">
+            <img src="../../../assets/horizontal-001.webp" alt="" />
+            <div class="switcher__item__text | flow">
+              <h3>Switcher Child</h3>
+              <p>
+                부모의 컨텐츠 너비가 960px보다 작아지면 우리는 세로로
+                배열됩니다. 한줄씩 내려간 요소들이 나머지와 다른 모습을 갖는다면
+                일관성이 떨어집니다. 그리고 너무 좁은 공간에 가로로 배열하는
+                것은 가독성과 심미성 모두에 안좋습니다. 그렇기에 우리는 모두 다
+                같이 가로로 혹은 세로로 배열됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="switcher__item">
+            <img src="../../../assets/horizontal-002.webp" alt="" />
+            <div class="switcher__item__text | flow">
+              <h3>Switcher Child</h3>
+              <p>
+                부모의 컨텐츠 너비가 960px보다 작아지면 우리는 세로로
+                배열됩니다. 한줄씩 내려간 요소들이 나머지와 다른 모습을 갖는다면
+                일관성이 떨어집니다. 그리고 너무 좁은 공간에 가로로 배열하는
+                것은 가독성과 심미성 모두에 안좋습니다. 그렇기에 우리는 모두 다
+                같이 가로로 혹은 세로로 배열됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="switcher__item">
+            <img src="../../../assets/horizontal-003.webp" alt="" />
+            <div class="switcher__item__text | flow">
+              <h3>Switcher Child</h3>
+              <p>
+                부모의 컨텐츠 너비가 960px보다 작아지면 우리는 세로로
+                배열됩니다. 한줄씩 내려간 요소들이 나머지와 다른 모습을 갖는다면
+                일관성이 떨어집니다. 그리고 너무 좁은 공간에 가로로 배열하는
+                것은 가독성과 심미성 모두에 안좋습니다. 그렇기에 우리는 모두 다
+                같이 가로로 혹은 세로로 배열됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="switcher__item">
+            <img src="../../../assets/horizontal-004.webp" alt="" />
+            <div class="switcher__item__text | flow">
+              <h3>Switcher Child</h3>
+              <p>
+                부모의 컨텐츠 너비가 960px보다 작아지면 우리는 세로로
+                배열됩니다. 한줄씩 내려간 요소들이 나머지와 다른 모습을 갖는다면
+                일관성이 떨어집니다. 그리고 너무 좁은 공간에 가로로 배열하는
+                것은 가독성과 심미성 모두에 안좋습니다. 그렇기에 우리는 모두 다
+                같이 가로로 혹은 세로로 배열됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

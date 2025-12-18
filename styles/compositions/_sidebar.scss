@@ -1,0 +1,46 @@
+%fixed {
+  flex-grow: 1;
+  flex-basis: var(--sidebar-fixed-width, var(--min-width, 20rem));
+}
+
+%flexible {
+  flex-grow: 999;
+  flex-basis: 0;
+  min-inline-size: min(
+    100%,
+    var(
+      --sidebar-flexible-min-width,
+      calc(50% - 0.5 * var(--gutter, var(--space-s-l, 2.5rem)))
+    )
+  );
+}
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s-l, 2.5rem));
+
+  &:not([data-direction]) {
+    > :first-child {
+      @extend %fixed;
+    }
+
+    > :last-child {
+      @extend %flexible;
+    }
+  }
+
+  &[data-direction='rtl'] {
+    > :last-child {
+      @extend %fixed;
+    }
+
+    > :first-child {
+      @extend %flexible;
+    }
+  }
+
+  &[data-reversed] {
+    flex-direction: row-reverse;
+  }
+}

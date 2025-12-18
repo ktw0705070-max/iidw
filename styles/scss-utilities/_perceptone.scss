@@ -1,0 +1,158 @@
+@use 'sass:map';
+@use 'sass:math';
+
+$default-lightness-exponent: math.div(1, 1.8);
+$default-chroma-peak: 0.12;
+$default-lightness-at-chroma-peak: 0.71;
+$default-prefix: 'tone-';
+$default-step-size: 1;
+
+@function lightness-value($args) {
+  $step: map.get($args, 'step');
+  $exponent: map.get($args, 'exponent');
+
+  @if not $exponent {
+    $exponent: $default-lightness-exponent;
+  }
+
+  $base: math.div($step, 100);
+
+  @return math.pow($base, $exponent);
+}
+
+@function chroma-value($args) {
+  $step: map.get($args, 'step');
+  $lightness-exponent: map.get($args, 'lightnessExponent');
+
+  @if not $lightness-exponent {
+    $lightness-exponent: $default-lightness-exponent;
+  }
+
+  $peak: map.get($args, 'peak');
+
+  @if not $peak {
+    $peak: $default-chroma-peak;
+  }
+
+  $lightness-at-peak: map.get($args, 'lightnessAtPeak');
+
+  @if not $lightness-at-peak {
+    $lightness-at-peak: $default-lightness-at-chroma-peak;
+  }
+
+  $lightness-at-step: lightness-value(
+    (
+      'step': $step,
+      'exponent': $lightness-exponent
+    )
+  );
+  $chroma: $peak * math.div($lightness-at-step, $lightness-at-peak);
+
+  @if $lightness-at-step > $lightness-at-peak {
+    $chroma: $peak *
+      math.div((1 - $lightness-at-step), (1 - $lightness-at-peak));
+  }
+
+  @return $chroma;
+}
+
+@function tone-value($args) {
+  $hue: map.get($args, 'hue');
+  $step: map.get($args, 'step');
+  $lightness-exponent: map.get($args, 'lightnessExponent');
+
+  @if not $lightness-exponent {
+    $lightness-exponent: $default-lightness-exponent;
+  }
+
+  $chroma-peak: map.get($args, 'chromaPeak');
+
+  @if not $chroma-peak {
+    $chroma-peak: $default-chroma-peak;
+  }
+
+  $lightness-at-chroma-peak: map.get($args, 'lightnessAtChromaPeak');
+
+  @if not $lightness-at-chroma-peak {
+    $lightness-at-chroma-peak: $default-lightness-at-chroma-peak;
+  }
+
+  $lightness: lightness-value(
+    (
+      'step': $step,
+      'exponent': $lightness-exponent
+    )
+  );
+  $chroma: chroma-value(
+    (
+      'step': $step,
+      'lightnessExponent': $lightness-exponent,
+      'peak': $chroma-peak,
+      'lightnessAtPeak': $lightness-at-chroma-peak
+    )
+  );
+
+  @return oklch($lightness $chroma $hue);
+}
+
+/* stylelint-disable-next-line scss/at-mixin-pattern */
+@mixin generatePerceptone($args) {
+  $prefix: map.get($args, 'prefix');
+
+  @if not $prefix {
+    $prefix: $default-prefix;
+  }
+
+  $tone-name: map.get($args, 'toneName');
+
+  @if not $tone-name {
+    $tone-name: '';
+  }
+
+  $hue: map.get($args, 'hue');
+  $step-size: map.get($args, 'stepSize');
+
+  @if not $step-size {
+    $step-size: $default-step-size;
+  }
+
+  $lightness-exponent: map.get($args, 'lightnessExponent');
+
+  @if not $lightness-exponent {
+    $lightness-exponent: $default-lightness-exponent;
+  }
+
+  $chroma-peak: map.get($args, 'chromaPeak');
+
+  @if not $chroma-peak {
+    $chroma-peak: $default-chroma-peak;
+  }
+
+  $lightness-at-chroma-peak: map.get($args, 'lightnessAtChromaPeak');
+
+  @if not $lightness-at-chroma-peak {
+    $lightness-at-chroma-peak: $default-lightness-at-chroma-peak;
+  }
+
+  $steps-total: math.div(100, $step-size);
+  $variable-name: --#{$prefix};
+
+  @if $tone-name != '' {
+    $variable-name: #{$variable-name}#{$tone-name}-;
+  }
+
+  @for $n from 0 through $steps-total {
+    $step: $step-size * $n;
+    $tone: tone-value(
+      (
+        'hue': $hue,
+        'step': $step,
+        'lightnessExponent': $lightness-exponent,
+        'chromaPeak': $chroma-peak,
+        'lightnessAtChromaPeak': $lightness-at-chroma-peak
+      )
+    );
+
+    #{$variable-name}#{$step}: #{$tone};
+  }
+}

@@ -1,0 +1,29 @@
+@use 'sass:math';
+
+/* stylelint-disable-next-line scss/at-function-pattern */
+@function pxToRem($px, $base: 16) {
+  $val: $px;
+  $unit: math.unit($val);
+
+  @if $unit == 'px' {
+    $val: math.div($val, 1px);
+  } @else if $unit != '' {
+    @error "#{$val} must be in px units or unitless.";
+  }
+
+  @return math.div($val, $base);
+}
+
+/* stylelint-disable-next-line scss/at-function-pattern */
+@function remToPx($rem, $base: 16) {
+  $val: $rem;
+  $unit: math.unit($val);
+
+  @if $unit == 'rem' {
+    $val: math.div($val, 1rem);
+  } @else if $unit != '' {
+    @error "#{$val} must be in rem units or unitless.";
+  }
+
+  @return $val * $base;
+}

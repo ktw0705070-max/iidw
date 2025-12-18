@@ -1,0 +1,47 @@
+@use '../../../styles/global/base';
+@use '../../../styles/compositions';
+@use '../../../styles/utilities';
+
+.main {
+  --gutter: var(--space-s-2xl);
+
+  container-type: inline-size;
+}
+
+.tones {
+  > * + * {
+    margin-top: 1em;
+  }
+
+  @container (width < 33.5625rem) {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-2xs);
+
+    > * + * {
+      margin-top: unset;
+    }
+  }
+}
+
+.tone {
+  &__label {
+    font-weight: var(--font-bold);
+  }
+}
+
+.chips {
+  --flow-space: var(--space-3xs);
+  --switcher-container-min-width: 30rem;
+  --gutter: var(--space-3xs);
+}
+
+.chip {
+  &__swatch {
+    aspect-ratio: 1 / 1;
+  }
+
+  &__label {
+    font-size: var(--step--2);
+  }
+}
