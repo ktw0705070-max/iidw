@@ -962,7 +962,7 @@ h1 {
   display: block;
   max-width: 100%;
   height: auto;
-  transition: transform 0.3s e ase;
+  transition: transform 0.3s ease;
 }
 
 .card-item li a img:hover {
